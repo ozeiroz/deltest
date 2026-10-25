@@ -7,6 +7,7 @@ public class ClientRequest {
     @NotBlank
     @Size(max = 255)
     private String fullName;
+    @Size(max = 1)
     private String gender;
 
     public String getGender() {

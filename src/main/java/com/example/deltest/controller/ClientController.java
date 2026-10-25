@@ -44,14 +44,12 @@ public class ClientController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ClientResponse> getClientById(@PathVariable("id") long id) {
-        ClientResponse clientResponse = clientAccountService.getClientAccountById(id);
-        URI location = URI.create("/api/clients/" + clientResponse.getId());
-        return ResponseEntity.created(location).body(clientResponse);
+    public ClientResponse getClientById(@PathVariable Long id) {
+        return clientAccountService.getClientAccountById(id);
     }
 
     @PutMapping("/{id}")
-    public ClientResponse updateClient(@PathVariable("id") long id, @RequestBody ClientRequest clientRequest) {
+    public ClientResponse updateClient(@PathVariable("id") long id, @RequestBody @Valid ClientRequest clientRequest) {
         return clientAccountService.updateClientAccount(id, clientRequest);
     }
 
