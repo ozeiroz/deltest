@@ -27,7 +27,7 @@ public class ClientAccountService {
     }
 
     public List<ClientResponse> getClientAccount() {
-        return clientAccountRepository.getAllClients().stream().map(ClientResponse::fromClientAccount).toList();
+        return clientAccountRepository.findAll().stream().map(ClientResponse::fromClientAccount).toList();
     }
 
     public ClientResponse getClientAccountById(Long id) {
