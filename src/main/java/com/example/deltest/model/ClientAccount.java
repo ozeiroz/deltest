@@ -19,24 +19,25 @@ import java.time.Instant;
 public class ClientAccount {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(comment = "Идентификатор")
     private Long id;
 
-    @Column(name = "full_name", nullable = false)
+    @Column(name = "full_name", nullable = false, comment = "ФИО")
     private String fullName;
 
-    @Column(name = "gender", length = 1)
+    @Column(name = "gender", length = 1, comment = "Пол")
     private String gender;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status", length = 20)
+    @Column(name = "status", length = 20, comment = "Статус")
     private ClientStatus status;
 
     @CreationTimestamp
-    @Column(name = "create_dttm", nullable = false)
+    @Column(name = "create_dttm", nullable = false, comment = "Дата создания")
     private Instant createDttm;
 
     @UpdateTimestamp
-    @Column(name = "modify_dttm", nullable = false)
+    @Column(name = "modify_dttm", nullable = false, comment = "Дата изменения")
     private Instant modifyDttm;
 
     public ClientAccount(String fullName, String gender) {
